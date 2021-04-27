@@ -8,4 +8,6 @@ spec:
   ports:
   - port: 5432
     protocol: TCP
-  clusterIP: None
+#  clusterIP: None
+  type: LoadBalancer
+#TODO: remove IP so DB is not visible from outside the cluster

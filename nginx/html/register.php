@@ -5,6 +5,21 @@
 <body>
 
 <?php
+$dbconn = pg_connect("host=192.168.49.2 port=32528 dbname=postgres user=postgres password=securepassword123")
+	or die('could not connect: ' . pg_last_error());
+
+$response = pg_query($dbconn, "SELECT * FROM userdata");
+
+while($row = pg_fetch_row($response)){
+	echo "name: $row[0] pass: $row[1] email: $row[2]";
+	echo "<br/>";
+}
+
+pg_close($dbconn);
+
+
+
+return;
 $username=$_POST["username"];
 $email=$_POST["email"];
 $password1=$_POST["password1"];
