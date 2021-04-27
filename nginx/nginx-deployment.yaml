@@ -17,6 +17,7 @@ spec:
       containers:
       - name: nginx
         image: draelach/mynginx
+        imagePullPolicy: "Always"
         ports:
         - name: http 
           containerPort: 80
