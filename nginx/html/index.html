@@ -13,13 +13,15 @@
 
 <body>
 	<div id="topbar">
-		<form action="login.php">
+		<form action="login.php" method="post">
 			<label>Username:</label>
-			<input type="text" id="username" name="username">
+			<input type="text" id="username" name="username" required>
 			<label>Password:</label>
-			<input type="password" id="password" name="password">
+			<input type="password" id="password" name="password" required>
 			<input type="submit" value="Login"></button>
+			<a href="register.html">
 			<button type="button">Register</button>
+			</a>
 		</form>
 
 
