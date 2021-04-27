@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Register</title>
+  <meta name="description" content="Kubernetes test">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+	<div id="registerbar">
+		<form action="register.php" method="post" onsubmit="return validateForm()">
+			<label>Username:</label>
+			<input type="text" id="username" name="username" required><br><br>
+			<label>E-mail:</label>
+			<input type="text" id="email" name="email" required><br><br>
+			<label>Password:</label>
+			<input type="password" id="password1" name="password1" required><br><br>
+			<label>Re-type password:</label>
+			<input type="password" id="password2" name="password2" required><br><br>
+			<input type="submit" value="Register"></button>
+		</form>
+
+
+		
+	</div>
+
+
+<!-- lazy validation, implement php validation too-->
+<script>
+function validateForm(){
+	debug = true;
+
+	pass1 = document.getElementById("password1").value;
+	pass2 = document.getElementById("password2").value;
+
+	if (pass1!=pass2){
+		//alert("Passwords don't match");
+		return debug;
+	}
+	if (pass1.length < 6){
+		//alert("Password length must be at least 6")
+		//alert(pass1+" "+pass1.length);
+		return debug;
+	}
+
+	let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	mail = document.getElementById("email").value;
+	if(!res.test(mail)){
+		//alert("invalid mail")
+		return debug;
+	}
+}
+</script>
+</body>
+</html>
