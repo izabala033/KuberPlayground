@@ -1,9 +1,4 @@
-
-<html>
-<head>
-</head>
-	<body>
-		<?php
+<?php
 
 $fail = true;
 
@@ -15,17 +10,31 @@ include 'db.php';
 $response = pg_fetch_row($response);
 if($response){
 	if($response[0]==$sha){
-		echo "Welcome, $username";
 		$fail=false;
+
+		setcookie("username",$username);
 	}
 }
 
+
+		?>
+
+<html>
+<head>
+</head>
+	<body>
+		
+		<?php
 if($fail){
 	echo "Login attempt failed";
 }
-
-
-
+else{
+	echo "Welcome, $username";
+}
 		?>
+
+		<a href="index.php">
+			<button>Back</button>
+		</a>
 	</body>
 </html>

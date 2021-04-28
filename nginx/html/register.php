@@ -33,7 +33,7 @@ echo "User created succesfully";
 
 
 ?>
-<a href=index.html>
+<a href=index.php>
 <button>
 	Back
 </button>

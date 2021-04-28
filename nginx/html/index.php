@@ -12,6 +12,11 @@
 </head>
 
 <body>
+
+	<?php
+	if(!isset($_COOKIE["username"])){
+
+	?>
 	<div id="topbar">
 		<form action="login.php" method="post">
 			<label>Username:</label>
@@ -23,12 +28,19 @@
 			<button type="button">Register</button>
 			</a>
 		</form>
-
-
-		
 	</div>
-
-
+<?php
+}
+else{
+	echo "<button onclick='logout()'>Logout</body>";
+}
+?>
+<script>
+	function logout(){
+		document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+		location.reload(true);
+	}
+</script>
 <!--  <script src="js/scripts.js"></script> -->
 </body>
 </html>
