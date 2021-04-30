@@ -8,7 +8,9 @@ if ($query == null){
 //$dbconn = pg_connect("host=192.168.49.2 port=32528 dbname=postgres user=postgres password=securepassword123")
 //	or die('could not connect: ' . pg_last_error());
 
-$dbconn = pg_connect("host=postgres-service port=5432 dbname=postgres user=postgres password=securepassword123")
+
+$dbhost = getenv("POSTGRES_SERVICE_SERVICE_HOST");
+$dbconn = pg_connect("host=$dbhost port=5432 dbname=postgres user=postgres password=securepassword123")
 	or die('could not connect: ' . pg_last_error());
 
 $response = pg_query($dbconn, $query);
